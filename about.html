@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABANA BRICKS | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER (Same as Home page – NO CHANGE) -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="Images/logo.png" alt="ABANA BRICKS Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-main">
+    <h1>About Abana Bricks</h1>
+    <p class="about-text">
+      Abana Bricks is a growing real-estate startup created with one goal - to make renting homes easier, faster,
+      and more comfortable for everyone. We connect tenants with well-maintained homes, trusted owners, and flexible
+      leasing options. Whether you are searching for a family home, bachelor accommodation, or a short-term stay,
+      we make the journey smooth from start to finish.
+    </p>
+
+    <div class="about-slider">
+    <div class="slides fade">
+        <img src="images/slide1.jpg">
+    </div>
+    <div class="slides fade">
+        <img src="images/slide2.jpg">
+    </div>
+    <div class="slides fade">
+        <img src="images/slide3.jpg">
+    </div>
+    <div class="slides fade">
+        <img src="images/slide4.jpg">
+    </div>
+    <div class="slides fade">
+        <img src="images/slide5.jpg">
+    </div>
+</div>
+
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section class="vision-mission">
+    <div class="vm-container">
+      <div class="vm-box">
+        <h2>Vision</h2>
+        <p><b>
+          Our vision is to create a hassle-free renting experience for everyone.
+          We aim to build a system where booking a rental home is as easy as booking a hotel-fast, transparent, and online.</b>
+        </p>
+        <ul><b>
+          ⏳Reduce paperwork & delays<br>
+          ⚡Bring verified homes faster<br>
+          🤝Build trust between tenants & owners</b>
+        </ul>
+      </div>
+
+      <div class="vm-box">
+        <h2>Mission</h2>
+        <p><b>
+          Our mission is to make home renting simple and trustworthy. We offer clean, safe, and comfortable rental homes
+          with a clear process and no hidden charges. From search to agreements and support, we focus on making every
+          step smooth for tenants.</b>
+        </p>
+        <ul><b>
+          🛠️Well-maintained homes<br>
+          😌No confusion, no stress<br>
+          🔒Tenants feel secure & supported</b>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section class="difference-section">
+  <h2>What Makes Us Different</h2><br>
+
+  <div class="diff-box-container">
+
+    <div class="diff-box active" data-target="verified">
+      <h4>✅ Verified Properties</h4>
+    </div>
+
+    <div class="diff-box" data-target="pricing">
+      <h4>💲 Affordable Pricing</h4>
+    </div>
+
+    <div class="diff-box" data-target="fast">
+      <h4>⚡ Fast & Simple Process</h4>
+    </div>
+
+    <div class="diff-box" data-target="support">
+      <h4>🤝 Dedicated Support Team</h4>
+    </div>
+
+    <div class="diff-box" data-target="flexible">
+      <h4>🏠 Flexible Leasing Options</h4>
+    </div>
+
+  </div>
+
+  <!-- CONTENT APPEARS BELOW -->
+  <div class="diff-content active" id="verified">
+    <p>Every listing on Abana Bricks goes through a verification process.
+We check property condition, documentation, location, and ownership to ensure tenants receive genuine homes without fake promises.</p>
+  </div>
+
+  <div class="diff-content" id="pricing">
+    <p>We believe in honesty.
+Our prices are clearly mentioned and transparent, with no hidden fees, broker charges, or surprise costs.
+What you see is what you pay.</p>
+  </div>
+
+  <div class="diff-content" id="fast">
+    <p>We reduce the traditional slow paperwork and complicated steps.
+With Abana Bricks, tenants can - View property details online, Schedule visits, Submit documents, Sign agreements, Ask for support. All with just a few clicks.</p>
+  </div>
+
+  <div class="diff-content" id="support">
+    <p>Our support team helps at every stage - Searching for the right home, Arranging visits, Explaining agreements, Move-in and move-out assistance, We make sure customers feel supported and guided, not left alone.</p>
+  </div>
+
+  <div class="diff-content" id="flexible">
+    <p>Short-term, long-term, furnished or unfurnished - you choose.</p>
+  </div>
+
+</section>
+
+  <!-- FOOTER (Same – NO CHANGE) -->
+  <footer>
+    <div>📍 4515 Drowsy Water Wy, Folsom, CA 95630, USA</div>
+    <p>© 2025 ABANABRICKS. All rights reserved.</p>
+    <div>
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("slides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 3000); // change every 3 seconds
+}
+</script>
+<script>
+const boxes = document.querySelectorAll(".diff-box");
+const contents = document.querySelectorAll(".diff-content");
+
+boxes.forEach(box => {
+  box.addEventListener("click", () => {
+
+    // remove old active state
+    boxes.forEach(b => b.classList.remove("active"));
+    contents.forEach(c => c.classList.remove("active"));
+
+    // activate clicked
+    box.classList.add("active");
+    document.getElementById(box.dataset.target).classList.add("active");
+  });
+});
+</script>
+
+</body>
+</html>

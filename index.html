@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABANA BRICKS | Find Your Perfect Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="Images\logo.png" alt="ABANA BRICKS Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('Images/banner1.jpg');"></div>
+        <div class="slide" style="background-image: url('Images/banner2.jpg');"></div>
+        <div class="slide" style="background-image: url('Images/banner3.jpg');"></div>
+        <div class="slide" style="background-image: url('Images/banner4.jpg');"></div>
+        <div class="slide" style="background-image: url('Images/banner5.jpg');"></div>
+
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="hero-content">
+            <h1><b>Find Your Perfect Home with <br><c>ABANABRICKS</br></c></b></h1>
+            <p><b>Comfortable, well-maintained rental homes with simple online leasing</b></p>
+            <a href="properties.html" class="btn">View Listings</a>
+        </div>
+    </div>
+</section>
+
+  <!-- FEATURED LISTINGS -->
+  <section class="featured">
+    <h1>Featured Listings</h1>
+    <p><b>Explore a few of our top rental homes - modern, well-located, and ready to move in...</b></p>
+
+    <div class="listings">
+      <div class="property">
+        <img src="Images\house1.jpg" alt="Down Avenue">
+        <h3>Country Farmhouse</h3>
+        <p class="price">4 Bedrooms</p>
+        <p>Modern 4-bedroom home with spacious living area and private garden</p>
+        <a class="btn" href="properties.html"><b>View similar</b></a>
+      </div>
+
+      <div class="property">
+        <img src="Images\house2.jpg" alt="Queens Way">
+        <h3>Lakeview Cabin</h3>
+        <p class="price">3 Bedrooms</p>
+        <p>Elegant Spacious 3-bedroom home in a quiet, well-connected area</p>
+        <a class="btn" href="properties.html"><b>View similar</b></a>
+      </div>
+
+      <div class="property">
+        <img src="Images\house3.jpg" alt="Randall Close">
+        <h3>Luxury Condo</h3>
+        <p class="price">3 Bedrooms</p>
+        <p>Luxury 3-bedroom villa featuring open-concept design and double-car garage</p>
+        <a class="btn" href="properties.html"><b>View similar</b></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-choose-us">
+    <h2>Why Choose Us</h2>
+    <div class="why-items">
+      <div class="why-item">
+        <img src="Images\expert-icon.png" alt="Expert Guidance">
+        <h3>Expert Guidance</h3>
+        <p><b>Our team helps you at every step - from searching the right home to signing your agreement. We make every process smooth, safe, and simple</b></p>
+      </div>
+      <div class="why-item">
+        <img src="Images\value-icon.png" alt="Best Value">
+        <h3>Best Value</h3>
+        <p><b>We believe in clear, honest pricing - no hidden costs or consulting fees. Every property is checked to ensure top value for your money</b></p>
+      </div>
+      <div class="why-item">
+        <img src="Images\service-icon.png" alt="Timely Service">
+        <h3>Timely Service</h3>
+        <p><b>Our quick response team ensures your questions are answered fast, visits are scheduled smoothly, and paperwork is handled without delay</b></p>
+      </div>
+    </div>
+  </section>
+
+<!-- REALTOR SECTION -->
+<section class="realtor-section">
+  <div class="realtor-container">
+    <img src="Images/realtor.jpg" alt="Realtor Photo" class="realtor-img">
+
+    <div class="realtor-content">
+      <h2>Your Trusted Realtor</h2>
+      <p>
+        With years of experience and a passion for helping families find their perfect home, 
+        we ensure a smooth buying and renting experience from start to finish.
+      </p>
+      <a href="Agents.html" class="realtor-btn">Meet The Realtor</a>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+    <footer>
+    <div>📍 4515 Drowsy Water Wy, Folsom, CA 95630, USA</div>
+    <p>© 2025 ABANABRICKS. All rights reserved.</p>
+    <div>
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">LinkedIn</a>
+    </div>
+    </footer>
+<script>
+let slides = document.querySelectorAll('.slide');
+let dots = document.querySelectorAll('.dot');
+let index = 0;
+
+function changeSlide() {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    index = (index + 1) % slides.length;
+}
+setTimeout(() => {
+    changeSlide(); // First change happens early
+    setInterval(changeSlide, 3000); // Then regular 3s loop
+}, 1000);
+
+</script>
+</body>
+</html>
