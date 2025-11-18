@@ -103,28 +103,34 @@ function toggleMenu() {
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append("first_name", document.querySelector("[name='first_name']").value);
+    formData.append("last_name", document.querySelector("[name='last_name']").value);
+    formData.append("email", document.querySelector("[name='email']").value);
+    formData.append("message", document.querySelector("[name='message']").value);
+
     fetch("https://script.google.com/macros/s/AKfycbw64YnfU1AxrMGVcJ7Cef2qXoohkXKR63KgeTrRDGvJaKCwQ-gm28cJQxs28vGREYIOUA/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            first_name: document.querySelector("[name='first_name']").value,
-            last_name: document.querySelector("[name='last_name']").value,
-            email: document.querySelector("[name='email']").value,
-            message: document.querySelector("[name='message']").value
-        })
+        body: formData   // <-- No headers needed, FormData fixes CORS
     })
     .then(response => response.json())
     .then(result => {
-        alert("Your message has been sent successfully!");
-        document.getElementById("contactForm").reset();
+        if (result.status === "success") {
+            alert("Your message has been sent successfully!");
+            document.getElementById("contactForm").reset();
+        } else {
+            alert("Server error: " + JSON.stringify(result));
+        }
     })
     .catch(error => {
         alert("Error sending message. Please try again.");
+        console.log(error);
     });
 });
 </script>
 </body>
 </html>
+
 
 
 
