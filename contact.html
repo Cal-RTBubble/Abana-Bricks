@@ -109,7 +109,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     formData.append("email", document.querySelector("[name='email']").value);
     formData.append("message", document.querySelector("[name='message']").value);
 
-    fetch("https://script.google.com/macros/s/AKfycbw64YnfU1AxrMGVcJ7Cef2qXoohkXKR63KgeTrRDGvJaKCwQ-gm28cJQxs28vGREYIOUA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwOWtZkUPUqeizk1EgqF42K9Ut8WZCrqde6fcZHN2AQd805ax2J31vBCmstjWB8sQUWEw/exec", {
         method: "POST",
         body: formData   // <-- No headers needed, FormData fixes CORS
     })
@@ -130,6 +130,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
