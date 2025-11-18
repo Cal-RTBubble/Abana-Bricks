@@ -17,7 +17,8 @@
         <img src="Images/logo.png" alt="ABANA BRICKS Logo">
       </div>
       <nav>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul id="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="properties.html">Properties</a></li>
           <li><a href="agents.html">Agents</a></li>
@@ -40,19 +41,19 @@
 
     <div class="about-slider">
     <div class="slides fade">
-        <img src="Images/slide1.jpg">
+        <img src="images/slide1.jpg">
     </div>
     <div class="slides fade">
-        <img src="Images/slide2.jpg">
+        <img src="images/slide2.jpg">
     </div>
     <div class="slides fade">
-        <img src="Images/slide3.jpg">
+        <img src="images/slide3.jpg">
     </div>
     <div class="slides fade">
-        <img src="Images/slide4.jpg">
+        <img src="images/slide4.jpg">
     </div>
     <div class="slides fade">
-        <img src="Images/slide5.jpg">
+        <img src="images/slide5.jpg">
     </div>
 </div>
 
@@ -64,8 +65,7 @@
       <div class="vm-box">
         <h2>Vision</h2>
         <p><b>
-          Our vision is to create a hassle-free renting experience for everyone.
-          We aim to build a system where booking a rental home is as easy as booking a hotel-fast, transparent, and online.</b>
+          Our vision is to create a hassle-free renting experience for everyone. We aim to build a system where booking a rental home is as easy as booking a hotel-fast, transparent, online, and designed to provide comfort, clarity, and complete peace of mind.</b>
         </p>
         <ul><b>
           ⏳Reduce paperwork & delays<br>
@@ -188,7 +188,10 @@ boxes.forEach(box => {
   });
 });
 </script>
-
+<script>
+function toggleMenu() {
+  document.getElementById('nav-menu').classList.toggle('active');
+}
+</script>
 </body>
 </html>
-

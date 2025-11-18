@@ -13,6 +13,7 @@ body {
 }
 
 /* HEADER */
+
 header {
   background-color: #1E4173;
   color: #fff;
@@ -21,8 +22,8 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  overflow: hidden;
-
+  overflow: visible;       /* important */
+  position: relative;
 }
 
 header .container {
@@ -36,27 +37,29 @@ header .container {
 
 /* LOGO */
 header .logo img {
-  height: 180px; /* Keeps logo proportional */
+  height: 100px; /* Keeps logo proportional */
+  max-width: 450px;
   width: auto;  /* Maintains aspect ratio */
   object-fit: contain;
   display: block;
-  margin-top: -80px;
+  margin-top: -25px;
 }
 
-/* NAVIGATION */
-header ul {
+/* desktop NAVIGATION */
+nav ul {
   list-style: none;
   display: flex;
   gap: 25px;
   margin: 0;
   padding-bottom: 0; /* Ensures no extra padding below */
   align-items: center; /* Vertically center items inside flex */
+  line-height: normal;
 }
-header ul li {
+nav ul li {
   padding-bottom: 0;       /* Added: ensure li items have no bottom padding */
 }
 
-header ul li a {
+nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -64,20 +67,66 @@ header ul li a {
   transition: color 0.3s;
 }
 
-header ul li a:hover {
+nav ul li a:hover {
   color: #f4d03f;
 }
-header ul li a.active {
+nav ul li a.active {
     color: #f4d03f;           /* yellow highlight */
     font-weight: bold;
 }
+.hamburger {
+  display: none;       /* HIDE hamburger on desktop */
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 0;            /* ensure right alignment */
+  top: 10px;
+}
 
+
+/* MOBILE NAVIGATION */
+@media (max-width: 768px) {  
+    .hamburger {
+        display: block; /* Show hamburger */
+        right: 10px;     /* stays on right side */
+        top: -25px;
+        position: absolute;
+    }
+    nav {
+    width: 100%;      /* ensures menu uses full width */
+    position: relative;
+    }
+    nav ul {
+        display: none; /* Hide default menu */
+        flex-direction: column;
+        background: #1E4173;
+        width: 100%;
+        padding: 0;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        z-index: 999;
+    }
+
+    nav ul.active {
+        display: flex;  /* Show menu when hamburger clicked */
+    }
+
+    nav ul li {
+        padding: 0px;
+        text-align: center;
+    }
+     nav ul li a {
+     color: white; /* visible on mobile */
+  }
+}
 
 /* HERO */
 
 .hero {
     position: relative;
-    height: 400px;
+    height: 300px;
     overflow: hidden;
     color: white;
     display: flex;               /* ✅ centers horizontally + vertically */
@@ -119,6 +168,7 @@ header ul li a.active {
     justify-content: center;     /* ✅ centers vertically */
     text-align: center;
     margin: auto;
+    padding-top: 0 20px
 }
 
 
@@ -159,7 +209,7 @@ header ul li a.active {
 .hero h1 {
   color: #f4d03f;
   background-color: transparent;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   margin-bottom: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -167,18 +217,30 @@ header ul li a.active {
 
 .hero p {
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
 .btn {
   background-color: #fdd835;
   color: #1E4173;
-  padding: 10px 20px;
+  padding: 5px 10px;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
 }
+/* DESKTOP HERO HEIGHT FIX */
+@media (min-width: 768px) {
+    .hero {
+        height: 450px;   /* You can increase to 600px if you want */
+    }
+}
+@media (min-width: 768px) {
+    .hero-content {
+        margin-top: 50px;
+    }
+}
+
 
 /* FEATURED */
 .featured {
@@ -332,6 +394,25 @@ header ul li a.active {
 .realtor-btn:hover {
   background: #005fa1;
 }
+@media (max-width: 768px) {
+
+  .realtor-container {
+    flex-direction: column;
+    text-align: center; 
+    padding: 0 20px;   /* adds space on both sides */
+  }
+
+  .realtor-content {
+    padding-left: 15px;   /* extra left-side space */
+    padding-right: 15px;  /* keep symmetry */
+    text-align: left;     /* keep original aligned text */
+  }
+
+  .realtor-img {
+    width: 250px;
+    height: 250px;
+  }
+}
 
 
 /* FOOTER */
@@ -350,6 +431,8 @@ footer a {
   color: #fff;              /* Make the footer links white */
   text-decoration: none;    /* Remove underline */
   transition: color 0.3s;   /* Smooth hover transition */
+  padding: 0;
+
 }
 
 footer a:hover {
@@ -459,6 +542,20 @@ footer a:hover {
   gap: 10px;
   font-size: 0.85rem;
   color: #555;
+}
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .property-section {
+    padding: 40px 20px;   /* Reduce padding on smaller screens */
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr;  /* One card per row */
+  }
+
+  .property-card img {
+    height: 180px; /* Slightly smaller images for mobile */
+  }
 }
 
 /* FEATURED SECTION */
@@ -585,6 +682,28 @@ footer a:hover {
   margin-bottom: 15px;
   font-size: 1.30rem;
 }
+/* Mobile Responsive – Agent Benefits Section */
+@media (max-width: 768px) {
+  .agent-benefits {
+    flex-direction: column; /* Stack image + text */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .agent-benefits img {
+    width: 90%;      /* Make image auto-adjust */
+    max-width: 300px;
+  }
+
+  .agent-benefits h2 {
+    font-size: 1.8rem;
+  }
+
+  .agent-benefits p {
+    font-size: 1rem;
+  }
+}
+
 
 /* MEET OUR AGENTS */
 .meet-agents {
@@ -680,6 +799,18 @@ footer a:hover {
     from {opacity: .4}
     to {opacity: 1}
 }
+/* MOBILE FIX – Make images smaller and properly scaled */
+@media (max-width: 768px) {
+    .about-slider {
+        height: auto;    /* remove forced full screen height */
+    }
+
+    .about-slider img {
+        height: auto;            /* natural height */
+        max-height: 400px;       /* adjust if needed */
+        object-fit: cover;       /* keeps nice cropping */
+    }
+}
 
 
 /* VISION & MISSION */
@@ -706,7 +837,7 @@ footer a:hover {
 .vm-box h2 {
   text-align: center;
   font-size: 2rem;
-  color: #1E4173;
+  color: #8B0000;
   margin-bottom: 15px;
 }
 .vm-box p {
@@ -714,6 +845,7 @@ footer a:hover {
   color: #ba9c23;
 }
 .vm-box ul {
+  text-align: center;
   color: #1E4173;
 }
 /* DIFFERENCE SECTION */
@@ -919,3 +1051,4 @@ footer a:hover {
     align-self: center;
   }
 }
+
